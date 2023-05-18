@@ -1,5 +1,6 @@
 import Marquee from "react-fast-marquee";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import CatagoryCard from "./CatagoryCard";
 
 const Home = () => {
 
@@ -36,7 +37,7 @@ const Home = () => {
             </section>
 
             {/* Gallery Section */}
-            <div className="container mx-auto">
+            <div className="max-w-screen-xl mx-auto">
                 <section className="text-center  m-12">
                     <h2 className="text-5xl font-semibold">Disney Gallery</h2>
                     <p className="my-5">
@@ -46,11 +47,13 @@ const Home = () => {
                     <div>
                         <Marquee className="flex items-center my-12" pauseOnHover>
                             {
-                                toyPic.map((pic, idx) => <>
-                                    {idx % 2 === 0 ?
-                                        <img src={toyPic[idx]} alt="" className="h-[300px] w-[300px] border rounded-lg mx-3" /> : <img src={toyPic[idx]} alt="" className="w-[200px] h-[200px] border rounded-lg mx-3" />
-                                    }
-                                </>)
+                                toyPic.map((pic, idx) =>
+                                    <div key={idx}>
+                                        {idx % 2 === 0 ?
+                                            <img src={toyPic[idx]} alt="" className="h-[300px] w-[300px]  rounded-lg mx-3" /> : <img src={toyPic[idx]} alt="" className="w-[200px] h-[200px] border rounded-lg mx-3" />
+                                        }
+                                    </div>
+                                )
                             }
                         </Marquee>
                     </div>
@@ -62,7 +65,7 @@ const Home = () => {
                     <hr className="mb-5" />
                     <Tabs className="grid grid-cols-11 gap-6">
                         <div className="col-span-3">
-                            <TabList className="space-y-3 text-xl ml-3" >
+                            <TabList className="space-y-3 text-xl ml-3 mt-5" >
                                 <Tab className="cursor-pointer">Disney Princes</Tab>
                                 <Tab className="cursor-pointer">Frozen Dolls</Tab>
                                 <Tab className="cursor-pointer">Animation Characters</Tab>
@@ -73,14 +76,36 @@ const Home = () => {
                         <div className="col-span-8">
 
                             <TabPanel >
-                                <div className="flex">
-                                    <h2>Any content 1</h2>
-                                    <h2>Any content 1</h2>
+                                <div className="grid grid-cols-4 gap-8">
+
+                                    <div className="rounded-3xl">
+                                        <CatagoryCard
+                                            textColor="text-red"
+                                            bg="bg-rose"
+                                        ></CatagoryCard>
+                                    </div>
+                                    <div className="rounded-3xl">
+                                        <CatagoryCard
+                                            textColor="text-sky-blue"
+                                            bg="bg-sky"
+                                        ></CatagoryCard>
+                                    </div>
+                                    <div className="rounded-3xl">
+                                        <CatagoryCard
+                                            textColor="text-purple"
+                                            bg="bg-light-purple"
+                                        ></CatagoryCard>
+                                    </div>
+                                    <div className="rounded-3xl">
+                                        <CatagoryCard
+                                            textColor="text-sky-blue"
+                                            bg="bg-brown"
+                                        ></CatagoryCard>
+                                    </div>
+
                                 </div>
                             </TabPanel>
-
                         </div>
-
                     </Tabs>
                 </section>
 
