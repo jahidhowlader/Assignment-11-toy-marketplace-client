@@ -19,7 +19,7 @@ const Signup = () => {
 
     // Handler Signup
     const handlerSignup = event => {
-        
+
         event.preventDefault()
 
         const form = event.target
@@ -64,9 +64,9 @@ const Signup = () => {
                 }
 
                 setError(err.code)
-                console.log(err.code);
-                console.log(err.message);
-                console.log(error);
+                // console.log(err.code);
+                // console.log(err.message);
+                // console.log(error);
             })
 
 

@@ -2,11 +2,13 @@ import { useContext, useState } from 'react';
 import './Authentication.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Signin = () => {
 
     // Auth Context
-    const { signinUser } = useContext(AuthContext)
+    const { signinUser, googleSignin } = useContext(AuthContext)
 
     // All state are here
     const [error, setError] = useState('')
@@ -46,6 +48,27 @@ const Signin = () => {
         console.log(email, password);
     }
 
+    //  handlerGoogleSignin 
+    const handlerGoogleSignin = () => {
+
+        googleSignin()
+            .then(result => {
+                toast.success('Successfully Signin!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+            })
+            .catch(err => {
+                setError(err.code.slice(5, (err.code.length)))
+            })
+    }
+
     return (
         <div id="auth-page-banner" className='grid grid-cols-3'>
             <div></div>
@@ -66,8 +89,19 @@ const Signin = () => {
 
                                 <button className='bg-gradient-to-r from-gd-first to-gd-second w-full rounded-lg py-2 shadow-lg shadow-gd-second text-white font-bold text-xl my-5'>Submit</button>
 
-                                <span className='text-center'>Do not have an account..? Please <Link to="/signup" className='font-bold'>signup</Link></span>
                             </form>
+
+                            <div className='flex justify-center items-center gap-5 text-3xl my-5'>
+                                <button onClick={handlerGoogleSignin}>
+                                    <FaGoogle className='text-red'></FaGoogle>
+                                </button>
+                                <button>
+                                <FaGithub></FaGithub>
+                                </button>
+                            </div>
+
+                                <span className='text-center'>Do not have an account..? Please <Link to="/signup" className='font-bold'>signup</Link></span>
+
                         </div>
                     </div>
                 </div>
