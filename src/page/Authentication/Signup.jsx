@@ -85,7 +85,7 @@ const Signup = () => {
                 <div className={`bg-rose w-8/12 rounded-lg ${error ? 'mt-5' : ''}`}>
                     <div className='bg-red bg-opacity-20 p-5 rounded-lg'>
                         <div>
-                            <h3 className='text-3xl text-center custom-font pb-8'>Please SignUp</h3>
+                            <h3 className='text-2xl text-center pb-3 font-semibold'>Sign-up</h3>
                             <form onSubmit={handlerSignup} >
 
                                 <input type="text" className='w-full p-3 border-b-2 border-black border-opacity-40 font-bold bg-transparent focus:outline-none my-3' placeholder='Name' name='name' required />

@@ -33,15 +33,66 @@ const Home = () => {
         <>
             {/* Banner Section */}
             <section className="">
-                <img src="https://i.ibb.co/s3Y3SdR/Disney-Princess-Banner-00b-scaled.jpg" alt="" />
+                {/* <img src="https://i.ibb.co/s3Y3SdR/Disney-Princess-Banner-00b-scaled.jpg" alt="" /> */}
+                <img src="https://i.ibb.co/KKq7y8N/33641-frozen-movie-mb.webp" alt="banner image" className="w-full" />
+            </section>
+
+            {/* Sub Catagory tab Section */}
+            <section className="mt-32 mb-12 max-w-screen-xl mx-auto">
+                <h2 className="text-xl font-semibold pb-2">CATEGORY</h2>
+                <hr className="mb-5 border-black border-opacity-20" />
+                <Tabs className="grid grid-cols-11 gap-6">
+                    <div className="col-span-3">
+                        <TabList className="space-y-3 ml-3 mt-5" >
+                            <Tab className="cursor-pointer">Disney Princes</Tab>
+                            <Tab className="cursor-pointer">Frozen Dolls</Tab>
+                            <Tab className="cursor-pointer">Animation Characters</Tab>
+                            <Tab className="cursor-pointer">Donald Duck</Tab>
+                        </TabList>
+                    </div>
+
+                    <div className="col-span-8">
+
+                        <TabPanel >
+                            <div className="grid grid-cols-4 gap-8">
+
+                                <div className="rounded-3xl">
+                                    <CatagoryCard
+                                        textColor="text-red"
+                                        bg="bg-rose"
+                                    ></CatagoryCard>
+                                </div>
+                                <div className="rounded-3xl">
+                                    <CatagoryCard
+                                        textColor="text-sky-blue"
+                                        bg="bg-sky"
+                                    ></CatagoryCard>
+                                </div>
+                                <div className="rounded-3xl">
+                                    <CatagoryCard
+                                        textColor="text-purple"
+                                        bg="bg-light-purple"
+                                    ></CatagoryCard>
+                                </div>
+                                <div className="rounded-3xl">
+                                    <CatagoryCard
+                                        textColor="text-sky-blue"
+                                        bg="bg-brown"
+                                    ></CatagoryCard>
+                                </div>
+
+                            </div>
+                        </TabPanel>
+                    </div>
+                </Tabs>
             </section>
 
             {/* Gallery Section */}
             <div className="max-w-screen-xl mx-auto">
-                <section className="text-center  m-12">
-                    <h2 className="text-5xl font-semibold">Disney Gallery</h2>
+                <section className="text-center mt-32">
+                    <h2 className="text-3xl font-semibold">Disney Gallery</h2>
                     <p className="my-5">
-                        <small className="italic">Disney Gallery is a captivating and immersive experience that takes visitors behind the scenes of the beloved Disney universe. It showcases the artistry, creativity, and imagination that go into bringing iconic characters and stories to life. From concept art and character design to visual effects and set construction, Disney Gallery offers a glimpse into the intricate process of filmmaking and the meticulous attention to detail that makes Disney films and animations so enchanting. Whether you are a fan of classic Disney films or the latest blockbusters, Disney Gallery is a must-visit destination for anyone seeking a deeper understanding and appreciation of the magic behind the Disney storytelling.</small>
+                        <small className="">Disney Gallery is a captivating and immersive experience that takes visitors behind the scenes of the beloved Disney universe. It showcases the artistry, creativity, and imagination that go into bringing iconic characters and stories to life. From concept art and character design to visual effects and set construction, Disney Gallery offers a glimpse into the intricate process of filmmaking and the meticulous attention to detail that makes Disney films and animations so enchanting. Whether you are a fan of classic Disney films or the latest blockbusters, Disney Gallery is a must-visit destination for anyone seeking a deeper understanding and appreciation of the magic behind the Disney storytelling.</small>
                     </p>
 
                     <div>
@@ -58,59 +109,12 @@ const Home = () => {
                         </Marquee>
                     </div>
                 </section>
-
-                {/* Sub Catagory tab Section */}
-                <section className="mt-32 mb-12">
-                    <h2 className="text-3xl font-semibold pb-2">CATEGORY</h2>
-                    <hr className="mb-5" />
-                    <Tabs className="grid grid-cols-11 gap-6">
-                        <div className="col-span-3">
-                            <TabList className="space-y-3 text-xl ml-3 mt-5" >
-                                <Tab className="cursor-pointer">Disney Princes</Tab>
-                                <Tab className="cursor-pointer">Frozen Dolls</Tab>
-                                <Tab className="cursor-pointer">Animation Characters</Tab>
-                                <Tab className="cursor-pointer">Donald Duck</Tab>
-                            </TabList>
-                        </div>
-
-                        <div className="col-span-8">
-
-                            <TabPanel >
-                                <div className="grid grid-cols-4 gap-8">
-
-                                    <div className="rounded-3xl">
-                                        <CatagoryCard
-                                            textColor="text-red"
-                                            bg="bg-rose"
-                                        ></CatagoryCard>
-                                    </div>
-                                    <div className="rounded-3xl">
-                                        <CatagoryCard
-                                            textColor="text-sky-blue"
-                                            bg="bg-sky"
-                                        ></CatagoryCard>
-                                    </div>
-                                    <div className="rounded-3xl">
-                                        <CatagoryCard
-                                            textColor="text-purple"
-                                            bg="bg-light-purple"
-                                        ></CatagoryCard>
-                                    </div>
-                                    <div className="rounded-3xl">
-                                        <CatagoryCard
-                                            textColor="text-sky-blue"
-                                            bg="bg-brown"
-                                        ></CatagoryCard>
-                                    </div>
-
-                                </div>
-                            </TabPanel>
-                        </div>
-                    </Tabs>
-                </section>
-
-                <section className="my-96"></section>
             </div>
+
+
+
+
+            <section className="my-96"></section>
 
         </>
     );

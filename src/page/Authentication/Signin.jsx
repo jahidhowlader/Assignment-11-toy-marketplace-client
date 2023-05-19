@@ -80,7 +80,7 @@ const Signin = () => {
                 <div className='bg-rose w-8/12 rounded-lg'>
                     <div className='bg-red bg-opacity-20 p-5 rounded-lg'>
                         <div>
-                            <h3 className='text-3xl text-center custom-font pb-8'>Please SignIn</h3>
+                            <h3 className='text-2xl text-center font-semibold pb-3'>Sign-in</h3>
                             <form onSubmit={handlerSignin}>
 
                                 <input type="email" className='w-full p-3 border-b-2 border-black border-opacity-40 font-bold bg-transparent focus:outline-none' placeholder='Email' name='email' required />
