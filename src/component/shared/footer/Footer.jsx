@@ -9,7 +9,18 @@ const Footer = () => {
                 <p>Hasbro Industries Ltd.<br />Providing reliable toy since 1992</p>
                 <span className="mt-">Help | &copy; Jahid Howlader</span>
             </div>
-            
+            <div>
+                <h4 className="text-xl">Address</h4>
+                <p>163 Reilly Road Suite 715</p>
+                <p>Virginia, USA</p>
+                <p>Contact: 957.721.7139</p>
+            </div>
+
+
+
+
+
+            <div>
                 <div className="grid grid-flow-col gap-4 text-3xl">
 
                     <Link to="https://twitter.com/JahidHowlader10" target="_blank">
@@ -25,13 +36,11 @@ const Footer = () => {
 
                     </Link>
                 </div>
-                
-            <div>
-                <div className=" space-x-2 mb=5">
-                    <input type="text" className="p-2 text-black" placeholder="Email"/>
+                <div className=" space-x-2 mt-2">
+                    <input type="text" className="p-2 text-black" placeholder="Email" />
                     <button className="bg-white  shadow-white text-red font-bold  mt-2 px-5 py-2">Send</button>
                 </div>
-                <p>Please provide your email address and keep in touch</p>
+                <p>Please keep in touch</p>
             </div>
         </footer>
     );

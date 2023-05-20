@@ -1,6 +1,7 @@
 import Marquee from "react-fast-marquee";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import CatagoryCard from "./CatagoryCard";
+import SwiperSection from "./SwiperSection";
 
 const Home = () => {
 
@@ -32,14 +33,18 @@ const Home = () => {
     return (
         <>
             {/* Banner Section */}
-            <section className="">
+            <section className="relative">
                 {/* <img src="https://i.ibb.co/s3Y3SdR/Disney-Princess-Banner-00b-scaled.jpg" alt="" /> */}
                 <img src="https://i.ibb.co/KKq7y8N/33641-frozen-movie-mb.webp" alt="banner image" className="w-full" />
+                <div className="absolute top-1/2 left-40 text-white">
+                    <h2 className="text-3xl">Frozen</h2>
+                    <p>Discover our Frozen collection including toys, dolls   & more featuring Anna, Elsa & <br />all of their friends.</p>
+                </div>
             </section>
 
             {/* Sub Catagory tab Section */}
-            <section className="mt-32 mb-12 max-w-screen-xl mx-auto">
-                <h2 className="text-xl font-semibold pb-2">CATEGORY</h2>
+            <section className="mt-16 mb-12 max-w-screen-xl mx-auto">
+                <h2 className="text-xl font-semibold pb-2">SHOP BY CATEGORY</h2>
                 <hr className="mb-5 border-black border-opacity-20" />
                 <Tabs className="grid grid-cols-11 gap-6">
                     <div className="col-span-3">
@@ -88,14 +93,14 @@ const Home = () => {
             </section>
 
             {/* Gallery Section */}
-            <div className="max-w-screen-xl mx-auto">
+            <div className="max-w-screen-xl mx-auto hidden">
                 <section className="text-center mt-32">
                     <h2 className="text-3xl font-semibold">Disney Gallery</h2>
                     <p className="my-5">
                         <small className="">Disney Gallery is a captivating and immersive experience that takes visitors behind the scenes of the beloved Disney universe. It showcases the artistry, creativity, and imagination that go into bringing iconic characters and stories to life. From concept art and character design to visual effects and set construction, Disney Gallery offers a glimpse into the intricate process of filmmaking and the meticulous attention to detail that makes Disney films and animations so enchanting. Whether you are a fan of classic Disney films or the latest blockbusters, Disney Gallery is a must-visit destination for anyone seeking a deeper understanding and appreciation of the magic behind the Disney storytelling.</small>
                     </p>
 
-                    <div>
+                    <div> 
                         <Marquee className="flex items-center my-12" pauseOnHover>
                             {
                                 toyPic.map((pic, idx) =>
@@ -114,7 +119,18 @@ const Home = () => {
 
 
 
-            <section className="my-96"></section>
+            <div className="max-w-screen-xl mx-auto my-32">
+                <div className="text-center">
+                    <h3 className="text-2xl font-semibold pb-3">@CastleDisneyUSA </h3>
+                    <p>We love seeing your littles with their favorites from CastleDisney! Tag us or share a photo for a chance to be featured.</p>
+                </div>
+
+                <h3 className="text-xl font-semibold pt-10">#CastleDisneyUSA </h3>
+                <SwiperSection></SwiperSection>
+            </div>
+
+            <section className="my-96">
+            </section>
 
         </>
     );

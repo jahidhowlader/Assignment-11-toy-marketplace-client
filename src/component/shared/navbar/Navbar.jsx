@@ -1,18 +1,26 @@
 import { useContext } from "react";
 import { FaUserAlt } from "react-icons/fa";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
-import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from "react-tooltip";
+
 
 const Navbar = () => {
 
     // AuthContext
     const { user, logout } = useContext(AuthContext)
 
+    // navigation
+    const navigate = useNavigate()
+
     // Handler logout
     const handlerLogout = () => {
         logout()
             .then(() => {
+                navigate("/auth/signin")
                 toast.success('Successfully Logout!', {
                     position: "top-right",
                     autoClose: 3000,
@@ -24,7 +32,6 @@ const Navbar = () => {
                     theme: "colored",
                 });
             })
-
     }
 
     const navList = <>
@@ -91,12 +98,17 @@ const Navbar = () => {
                 {
                     user ?
                         <div className="flex items-center w-96 justify-end">
-                            <FaUserAlt></FaUserAlt>
-                            <Link onClick={handlerLogout} to="/signin" className="ml-2">SignOut</Link>
+                            {
+                                user.photoURL ?
+                                    <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} /> :
+                                    <FaUserAlt data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} className="border text-2xl p-1 rounded"></FaUserAlt>
+
+                            }
+                            <Link onClick={handlerLogout} to="/auth/signin" className="ml-2">SignOut</Link>
                         </div> :
                         <div className="flex items-center w-96 justify-end">
                             <FaUserAlt></FaUserAlt>
-                            <Link to="/signin" className="ml-2">Signin</Link>
+                            <Link to="/auth/signin" className="ml-2">Signin</Link>
                         </div>
                 }
             </div>
@@ -122,6 +134,9 @@ const Navbar = () => {
                 <div className="navbar-end">
                 </div>
             </nav>
+
+            <Tooltip id="my-tooltip"></Tooltip>
+            <ToastContainer></ToastContainer>
         </>
 
     );

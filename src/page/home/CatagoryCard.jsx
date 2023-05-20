@@ -13,11 +13,11 @@ const CatagoryCard = ({bg, textColor}) => {
                 </h2>
                 <h2 className="text-2xl font-bold">$25.30</h2>
 
-                <div className="flex items-center justify-between">
+                <div className="flex items-end justify-between">
                     <button className={`mt-2 font-bold ${textColor}`}>View Details</button>
                     <div className="flex gap-1 items-center">
                         <FaRegHeart className={textColor}></FaRegHeart>
-                        <p>4.6</p>
+                        <p className="font-semibold">4.6</p>
                     </div>
                 </div>
 

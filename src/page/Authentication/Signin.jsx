@@ -1,9 +1,11 @@
 import { useContext, useState } from 'react';
 import './Authentication.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Signin = () => {
 
@@ -22,7 +24,7 @@ const Signin = () => {
         const password = form.password.value
 
         signinUser(email, password)
-            .then(userCredential => {
+            .then(() => {
                 setError("")
                 form.reset()
             })
@@ -48,11 +50,15 @@ const Signin = () => {
         console.log(email, password);
     }
 
+    // Navigation
+    const navigate = useNavigate()
+
     //  handlerGoogleSignin 
     const handlerGoogleSignin = () => {
 
         googleSignin()
-            .then(result => {
+            .then(() => {
+                navigate("/")
                 toast.success('Successfully Signin!', {
                     position: "top-right",
                     autoClose: 3000,
@@ -96,11 +102,11 @@ const Signin = () => {
                                     <FaGoogle className='text-red'></FaGoogle>
                                 </button>
                                 <button>
-                                <FaGithub></FaGithub>
+                                    <FaGithub></FaGithub>
                                 </button>
                             </div>
 
-                                <span className='text-center'>Do not have an account..? Please <Link to="/signup" className='font-bold'>signup</Link></span>
+                            <p className='text-center'>Do not have an account..? Please <Link to="/auth/signup" className='font-bold'>signup</Link></p>
 
                         </div>
                     </div>

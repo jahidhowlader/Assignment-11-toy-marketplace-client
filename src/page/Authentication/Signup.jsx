@@ -2,17 +2,13 @@ import { useContext, useState } from 'react';
 import './Authentication.css'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider'
+import { toast } from 'react-toastify';
+import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
 
     // AuthContext
     const { createUser } = useContext(AuthContext)
-
-    // All State are here
-    const [name, setName] = useState('')
-    // const [email, setEmail] = useState('')
-    // const [password, setPassword] = useState('')
-    const [photoUrl, setPhotoUrl] = useState('')
 
     // Validation State
     const [error, setError] = useState('')
@@ -52,8 +48,24 @@ const Signup = () => {
             .then(userCredential => {
                 console.log(userCredential.user);
 
+                updateProfile(userCredential.user, {
+                    displayName: nameInput,
+                    photoURL: photoUrlInput
+                })
+
                 setError("")
                 form.reset()
+
+                toast.success('Successfully Signin!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             })
             .catch(err => {
                 const errorMessage = err.code.slice(5, (err.code.length))
@@ -64,9 +76,6 @@ const Signup = () => {
                 }
 
                 setError(err.code)
-                // console.log(err.code);
-                // console.log(err.message);
-                // console.log(error);
             })
 
 
@@ -98,7 +107,7 @@ const Signup = () => {
 
                                 <button className='bg-gradient-to-r from-gd-first to-gd-second w-full rounded-lg py-2 shadow-lg shadow-gd-second text-white font-bold text-xl my-5'>Submit</button>
 
-                                <span className='text-center'>You have already an account..? Please <Link to="/signin" className='font-bold'>signin</Link></span>
+                                <p className='text-center'>You have already an account..? Please <Link to="/auth/signin" className='font-bold'>signin</Link></p>
                             </form>
                         </div>
                     </div>
