@@ -15,8 +15,13 @@ const Signin = () => {
     // All state are here
     const [error, setError] = useState('')
 
+    // use navigate for rerender private page
+    const navigate = useNavigate()
+
     // Location state
     const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
+
     console.log(location);
 
     // Handler Signin
@@ -31,6 +36,7 @@ const Signin = () => {
             .then(() => {
                 setError("")
                 form.reset()
+                navigate(from, { replace: true })
             })
             .catch(e => {
                 setError('')
@@ -50,19 +56,15 @@ const Signin = () => {
                 setError(errorMessage)
                 form.email.focus()
             })
-
-        console.log(email, password);
     }
-
-    // Navigation
-    const navigate = useNavigate()
 
     //  handlerGoogleSignin 
     const handlerGoogleSignin = () => {
 
         googleSignin()
             .then(() => {
-                navigate("/")
+
+                navigate(from, { replace: true })
                 toast.success('Successfully Signin!', {
                     position: "top-right",
                     autoClose: 3000,

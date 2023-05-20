@@ -17,28 +17,28 @@ const AuthProvider = ({children}) => {
     // Create User with firebase
     const createUser = (email, password) => {
 
-        setLoading(false)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // Signin User with firebase
     const signinUser = (email, password) => {
 
-        setLoading(false)
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // Google signin user with firebase
     const googleSignin = () => {
 
-        setLoading(false)
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     // Logout with firebase
     const logout = () => {
         
-        setLoading(false)
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -47,6 +47,7 @@ const AuthProvider = ({children}) => {
 
         const unsubscriber = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            setLoading(false)
         })
 
         return () => {
