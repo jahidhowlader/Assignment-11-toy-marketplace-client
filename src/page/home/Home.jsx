@@ -3,6 +3,10 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import CatagoryCard from "./CatagoryCard";
 import SwiperSection from "./SwiperSection";
 import { useState } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
 
 const Home = () => {
 
@@ -43,7 +47,7 @@ const Home = () => {
     return (
         <>
             {/* Banner Section */}
-            <section className="relative">
+            <section data-aos="zoom-in" data-aos-duration="1000" className="relative">
                 <img src="https://i.ibb.co/KKq7y8N/33641-frozen-movie-mb.webp" alt="banner image" className="w-full" />
                 <div className="absolute top-1/2 left-40 text-white">
                     <h2 className="text-3xl">Frozen</h2>
@@ -52,7 +56,7 @@ const Home = () => {
             </section>
 
             {/* Sub Catagory tab Section */}
-            <section className="mt-16 mb-12 max-w-screen-xl mx-auto">
+            <section data-aos="zoom-out" data-aos-duration="1500" className="mt-16 mb-12 max-w-screen-xl mx-auto">
                 <h2 className="text-xl font-semibold pb-2">SHOP BY CATEGORY</h2>
                 <hr className="mb-5 border-black border-opacity-20" />
                 <Tabs onSelect={handlerTabs} className="grid grid-cols-11 gap-6">
@@ -133,7 +137,7 @@ const Home = () => {
 
 
 
-            <div className="max-w-screen-xl mx-auto my-32">
+            <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-xl mx-auto my-32">
                 <div className="text-center">
                     <h3 className="text-2xl font-semibold pb-3">@CastleDisneyUSA </h3>
                     <p>We love seeing your littles with their favorites from CastleDisney! Tag us or share a photo for a chance to be featured.</p>

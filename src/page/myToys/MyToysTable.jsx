@@ -4,7 +4,7 @@ const MyToysTable = ({mineToys}) => {
 
 
     return (
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-x-auto w-full mb-32">
             <table className="table w-full">
                 {/* head */}
                 <thead>

@@ -7,6 +7,8 @@ const MyToys = () => {
     // Auth Context
     const { user } = useContext(AuthContext)
 
+    console.log(user?.email);
+
     const [mineToys, setMineToys] = useState(null)
 
     useEffect(() => {
@@ -16,7 +18,7 @@ const MyToys = () => {
             .then(data => {
                 setMineToys(data)
             })
-    }, [])
+    }, [user])
 
 
     return (
