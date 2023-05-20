@@ -36,13 +36,18 @@ const Home = () => {
 
     const tabvalue = ["Frozen Doll", "Tangled Doll", "Moana Doll", "Ariel Doll", "Belle Doll", "Elsa Doll", "Cinderella Doll", "Anna Doll", "Mulan Doll"]
     const [selectedTabValue, setSelectedTabValue] = useState(null)
+    const [categoryData, setCategoryData] = useState([])
 
     const handlerTabs = index => {
 
         setSelectedTabValue(tabvalue[index])
+
+        fetch(`http://localhost:5000/${tabvalue[index]}`)
+            .then(res => res.json())
+            .then(data=> setCategoryData(data))
     }
 
-    console.log(selectedTabValue);
+    console.log(categoryData);
 
     return (
         <>
@@ -63,14 +68,14 @@ const Home = () => {
                     <div className="col-span-3">
                         <TabList className="space-y-3 ml-3 mt-5" >
                             <Tab className="cursor-pointer">Frozen Doll</Tab>
-                            <Tab className="cursor-pointer">Tangled Doll</Tab>
+                            {/* <Tab className="cursor-pointer">Tangled Doll</Tab>
                             <Tab className="cursor-pointer">Moana Doll</Tab>
                             <Tab className="cursor-pointer">Ariel Doll</Tab>
                             <Tab className="cursor-pointer">Belle Doll</Tab>
                             <Tab className="cursor-pointer">Elsa Doll</Tab>
                             <Tab className="cursor-pointer">Cinderella Doll</Tab>
                             <Tab className="cursor-pointer">Anna Doll</Tab>
-                            <Tab className="cursor-pointer">Mulan Doll</Tab>
+                            <Tab className="cursor-pointer">Mulan Doll</Tab> */}
                         </TabList>
                     </div>
 
