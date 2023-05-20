@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import './Authentication.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
@@ -14,6 +14,10 @@ const Signin = () => {
 
     // All state are here
     const [error, setError] = useState('')
+
+    // Location state
+    const location = useLocation()
+    console.log(location);
 
     // Handler Signin
     const handlerSignin = event => {

@@ -2,9 +2,6 @@ import { Link } from 'react-router-dom';
 
 const Toystable = ({ totalToys }) => {
 
-    // const { seller, toy_name, available_quantity, sub_category, price, image } = totalToys
-    console.log(totalToys[1]);
-
     return (
         <div className="overflow-x-auto w-full">
             <table className="table w-full">
@@ -49,7 +46,8 @@ const Toystable = ({ totalToys }) => {
                                 <th className='text-center'>{toy.available_quantity}</th>
                                 <th>
                                     <Link to={`/toys/${toy._id}`}>
-                                        <button className="bg-gradient-to-r from-gd-first to-gd-second w-full rounded py-2 shadow-md shadow-gd-second text-white my-5">details</button>
+                                        {/* <button className="bg-gradient-to-r from-gd-first to-gd-second w-full rounded py-2 shadow-md shadow-gd-second text-white my-5">details</button> */}
+                                        <button className="bg-sky-blue w-full rounded py-2 shadow-md shadow-sky-blue text-white my-5">details</button>
                                     </Link>
                                 </th>
                             </tr>
