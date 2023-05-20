@@ -2,6 +2,7 @@ import Marquee from "react-fast-marquee";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import CatagoryCard from "./CatagoryCard";
 import SwiperSection from "./SwiperSection";
+import { useState } from "react";
 
 const Home = () => {
 
@@ -29,12 +30,20 @@ const Home = () => {
         "https://i.ibb.co/tDpn4rT/y5j9-oao7-170429.jpg",
     ]
 
+    const tabvalue = ["Frozen Doll", "Tangled Doll", "Moana Doll", "Ariel Doll", "Belle Doll", "Elsa Doll", "Cinderella Doll", "Anna Doll", "Mulan Doll"]
+    const [selectedTabValue, setSelectedTabValue] = useState(null)
+
+    const handlerTabs = index => {
+
+        setSelectedTabValue(tabvalue[index])
+    }
+
+    console.log(selectedTabValue);
 
     return (
         <>
             {/* Banner Section */}
             <section className="relative">
-                {/* <img src="https://i.ibb.co/s3Y3SdR/Disney-Princess-Banner-00b-scaled.jpg" alt="" /> */}
                 <img src="https://i.ibb.co/KKq7y8N/33641-frozen-movie-mb.webp" alt="banner image" className="w-full" />
                 <div className="absolute top-1/2 left-40 text-white">
                     <h2 className="text-3xl">Frozen</h2>
@@ -46,13 +55,18 @@ const Home = () => {
             <section className="mt-16 mb-12 max-w-screen-xl mx-auto">
                 <h2 className="text-xl font-semibold pb-2">SHOP BY CATEGORY</h2>
                 <hr className="mb-5 border-black border-opacity-20" />
-                <Tabs className="grid grid-cols-11 gap-6">
+                <Tabs onSelect={handlerTabs} className="grid grid-cols-11 gap-6">
                     <div className="col-span-3">
                         <TabList className="space-y-3 ml-3 mt-5" >
-                            <Tab className="cursor-pointer">Disney Princes</Tab>
-                            <Tab className="cursor-pointer">Frozen Dolls</Tab>
-                            <Tab className="cursor-pointer">Animation Characters</Tab>
-                            <Tab className="cursor-pointer">Donald Duck</Tab>
+                            <Tab className="cursor-pointer">Frozen Doll</Tab>
+                            <Tab className="cursor-pointer">Tangled Doll</Tab>
+                            <Tab className="cursor-pointer">Moana Doll</Tab>
+                            <Tab className="cursor-pointer">Ariel Doll</Tab>
+                            <Tab className="cursor-pointer">Belle Doll</Tab>
+                            <Tab className="cursor-pointer">Elsa Doll</Tab>
+                            <Tab className="cursor-pointer">Cinderella Doll</Tab>
+                            <Tab className="cursor-pointer">Anna Doll</Tab>
+                            <Tab className="cursor-pointer">Mulan Doll</Tab>
                         </TabList>
                     </div>
 
@@ -100,7 +114,7 @@ const Home = () => {
                         <small className="">Disney Gallery is a captivating and immersive experience that takes visitors behind the scenes of the beloved Disney universe. It showcases the artistry, creativity, and imagination that go into bringing iconic characters and stories to life. From concept art and character design to visual effects and set construction, Disney Gallery offers a glimpse into the intricate process of filmmaking and the meticulous attention to detail that makes Disney films and animations so enchanting. Whether you are a fan of classic Disney films or the latest blockbusters, Disney Gallery is a must-visit destination for anyone seeking a deeper understanding and appreciation of the magic behind the Disney storytelling.</small>
                     </p>
 
-                    <div> 
+                    <div>
                         <Marquee className="flex items-center my-12" pauseOnHover>
                             {
                                 toyPic.map((pic, idx) =>

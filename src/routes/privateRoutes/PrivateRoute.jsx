@@ -10,8 +10,6 @@ const PrivateRoute = ({children}) => {
     const { user, loading } = useContext(AuthContext)
     const location = useLocation()
 
-    console.log(user);
-
     if (loading) {
          return <>
             <div className="grid grid-cols-5">

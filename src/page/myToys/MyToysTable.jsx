@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const Toystable = ({ totalToys }) => {
+const MyToysTable = ({mineToys}) => {
+
 
     return (
         <div className="overflow-x-auto w-full">
@@ -18,7 +19,7 @@ const Toystable = ({ totalToys }) => {
                 </thead>
                 <tbody>
                     {
-                        totalToys.map((toy, idx) =>
+                        mineToys && mineToys.map((toy, idx) =>
                             <tr key={toy._id}>
                                 <th>
                                     <p className=''>{idx + 1}</p>
@@ -38,10 +39,10 @@ const Toystable = ({ totalToys }) => {
                                         </div>
                                     </div>
                                 </td>
-                                <td className='font-semibold'>
+                                <td className='font-semibold pl-5'>
                                     {toy.seller}
                                 </td>
-                                <th className='pl-5'>${toy.price}</th>
+                                <th className="pl-5">${toy.price}</th>
                                 <th className='pl-5'>{toy.available_quantity}</th>
                                 <th>
                                     <Link to={`/toys/${toy._id}`}>
@@ -58,4 +59,4 @@ const Toystable = ({ totalToys }) => {
     );
 };
 
-export default Toystable;
+export default MyToysTable;
