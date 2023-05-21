@@ -1,4 +1,3 @@
-import { useLoaderData } from 'react-router-dom';
 import Toystable from "./Toystable";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from 'react';
@@ -8,6 +7,7 @@ const AllToys = () => {
     // All state are here (search , al toys)
     const [searchText, setSearchText] = useState('')
     const [totalToys, setTotalToys] = useState([])
+    const [sort, setSort] = useState(true)
 
     // Fetch data from database using api
     useEffect(() => {
@@ -29,7 +29,12 @@ const AllToys = () => {
             })
     }
 
-    console.log(searchText);
+    // Hander Sorting
+    const handlerSort = () => {
+        setSort(!sort)
+    }
+
+    console.log(sort);
 
     return (
         <section >
@@ -46,7 +51,11 @@ const AllToys = () => {
             </div>
 
             <div className="max-w-screen-2xl mx-auto my-12">
-                <Toystable totalToys={totalToys}></Toystable>
+                <Toystable
+                    totalToys={totalToys}
+                    handlerSort={handlerSort}
+                    sort={sort}
+                ></Toystable>
             </div>
         </section>
     );

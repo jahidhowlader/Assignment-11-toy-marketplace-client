@@ -1,6 +1,7 @@
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const Toystable = ({ totalToys }) => {
+const Toystable = ({ totalToys, handlerSort, sort }) => {
 
     return (
         <div className="overflow-x-auto w-full">
@@ -11,7 +12,15 @@ const Toystable = ({ totalToys }) => {
                         <th>No: </th>
                         <th>Toy Name</th>
                         <th>Seller</th>
-                        <th>Price</th>
+                        <th>Price
+                            <button onClick={handlerSort} className='ml-3'>
+                                {
+                                    sort ? 
+                                    <FaArrowUp></FaArrowUp> :
+                                    <FaArrowDown></FaArrowDown>
+                                }
+                            </button>
+                        </th>
                         <th>Available</th>
                         <th>Information</th>
                     </tr>
@@ -41,7 +50,8 @@ const Toystable = ({ totalToys }) => {
                                 <td className='font-semibold'>
                                     {toy.seller}
                                 </td>
-                                <th className='pl-5'>${toy.price}</th>
+                                <th className='pl-5'>${toy.price}
+                                </th>
                                 <th className='pl-5'>{toy.available_quantity}</th>
                                 <th>
                                     <Link to={`/toys/${toy._id}`}>
