@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const AddToys = () => {
 
     // AuthContext
     const { user } = useContext(AuthContext)
+
+    // custom Hooks
+    useTitle('Add Toys')
 
     // handlerAddToy
     const handlerAddToy = event => {
@@ -32,7 +36,7 @@ const AddToys = () => {
             image
         }
 
-        fetch("http://localhost:5000/add-toys", {
+        fetch("https://castle-disney-server.vercel.app/add-toys", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

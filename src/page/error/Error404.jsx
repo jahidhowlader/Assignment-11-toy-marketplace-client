@@ -2,8 +2,13 @@ import Lottie from "lottie-react";
 import showError from  "./Error.json"
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const Error404 = () => {
+
+    // custom Hooks
+    useTitle('Error 404')
+
     return (
         <div>
             <Link to="/">

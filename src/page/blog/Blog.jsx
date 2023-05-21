@@ -1,4 +1,10 @@
+import useTitle from "../../hooks/useTitle";
+
 const Blog = () => {
+
+    // custom Hooks
+    useTitle('Blog')
+    
     return (
         <>
             <hr />

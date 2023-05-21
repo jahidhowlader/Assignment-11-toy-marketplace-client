@@ -4,12 +4,16 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider'
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
+import useTitle from '../../hooks/useTitle';
 
 const Signup = () => {
 
     // AuthContext
     const { createUser } = useContext(AuthContext)
 
+    // custom Hooks
+    useTitle('Signup')
+    
     // use navigate for rerender private page
     const navigate = useNavigate()
 

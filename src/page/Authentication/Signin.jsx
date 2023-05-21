@@ -5,12 +5,16 @@ import { AuthContext } from '../../context/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../hooks/useTitle';
 
 
 const Signin = () => {
 
     // Auth Context
     const { signinUser, googleSignin } = useContext(AuthContext)
+
+    // custom Hooks
+    useTitle('Signin')
 
     // All state are here
     const [error, setError] = useState('')

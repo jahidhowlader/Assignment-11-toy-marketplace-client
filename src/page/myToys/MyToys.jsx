@@ -2,11 +2,15 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import MyToysTable from "./MyToysTable";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
 
     // Auth Context
     const { user } = useContext(AuthContext)
+
+    // custom Hooks
+    useTitle('My Toys')
 
     // state for total toys of mine
     const [mineToys, setMineToys] = useState(null)
@@ -14,7 +18,7 @@ const MyToys = () => {
     // Fetch my Toys
     useEffect(() => {
 
-        fetch(`http://localhost:5000/my-toys?email=${user?.email}`)
+        fetch(`https://castle-disney-server.vercel.app/my-toys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
 
@@ -36,7 +40,7 @@ const MyToys = () => {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/my-toys${_id}`, {
+                    fetch(`https://castle-disney-server.vercel.app/my-toys${_id}`, {
                         method: "DELETE"
                     })
                         .then(res => res.json())

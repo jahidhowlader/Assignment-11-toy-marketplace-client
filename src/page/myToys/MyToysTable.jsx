@@ -23,7 +23,7 @@ const MyToysTable = ({ mineToys, handlerDeleteToy }) => {
             description
         }
 
-        fetch(`http://localhost:5000/my-toys/${_id}`, {
+        fetch(`https://castle-disney-server.vercel.app/my-toys/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"

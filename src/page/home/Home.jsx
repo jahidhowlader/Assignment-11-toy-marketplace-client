@@ -6,10 +6,14 @@ import { useEffect, useState } from "react";
 import 'react-toastify/dist/ReactToastify.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import useTitle from "../../hooks/useTitle";
 AOS.init();
 
 
 const Home = () => {
+
+    // custom Hooks
+    useTitle('Home')
 
     const toyPic = [
         " https://i.ibb.co/QXjJc96/456.jpg",
@@ -42,14 +46,14 @@ const Home = () => {
 
         const categoryName = tabvalue[index] || 'Frozen Doll'
 
-        fetch(`http://localhost:5000/${categoryName}`)
+        fetch(`https://castle-disney-server.vercel.app/${categoryName}`)
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/Frozen Doll`)
+        fetch(`https://castle-disney-server.vercel.app/Frozen Doll`)
             .then(res => res.json())
             .then(data => setCategoryData(data))
     }, [])
@@ -125,9 +129,6 @@ const Home = () => {
                 </section>
             </div>
 
-
-
-
             <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-2xl mx-2 md:mx-auto my-32">
                 <div className="text-center">
                     <h3 className="text-2xl font-semibold pb-3">@CastleDisneyUSA </h3>
@@ -137,9 +138,6 @@ const Home = () => {
                 <h3 className="text-xl font-semibold pt-10">#CastleDisneyUSA </h3>
                 <SwiperSection></SwiperSection>
             </div>
-
-            <section className="my-96">
-            </section>
 
         </>
     );

@@ -1,6 +1,7 @@
 import Toystable from "./Toystable";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from 'react';
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
 
@@ -9,20 +10,24 @@ const AllToys = () => {
     const [totalToys, setTotalToys] = useState([])
     const [sort, setSort] = useState(false)
     const [sortOrder, setSortOrder] = useState('ascending')
+    const [seemore, setSeemore] = useState(false)
+
+    // custom Hooks
+    useTitle('All Toys')
 
     // Fetch data from database using api
     useEffect(() => {
-        fetch(`http://localhost:5000/toys`)
+        fetch(`https://castle-disney-server.vercel.app/toys`)
             .then(res => res.json())
             .then(data => {
-                setTotalToys(data)
+                setTotalToys(data.slice(0, 20))
             })
     }, [])
 
     // handlerSearch
     const handlerSearch = () => {
 
-        fetch(`http://localhost:5000/toys/${searchText}`)
+        fetch(`https://castle-disney-server.vercel.app/toys/${searchText}`)
             .then(res => res.json())
             .then(data => {
                 setTotalToys(data)
@@ -33,16 +38,27 @@ const AllToys = () => {
     const handlerSort = () => {
         setSort(!sort)
 
-        if(sort){
+        if (sort) {
             setSortOrder('ascending')
         } else {
             setSortOrder('descending ')
         }
 
-        fetch(`http://localhost:5000/toys/sort/${sortOrder}`)
+        fetch(`https://castle-disney-server.vercel.app/toys/sort/${sortOrder}`)
             .then(res => res.json())
             .then(data => {
                 setTotalToys(data);
+            })
+    }
+
+    // handler See more data
+    const handlerSeemore = () => {
+        setSeemore(true)
+
+        fetch(`https://castle-disney-server.vercel.app/toys`)
+            .then(res => res.json())
+            .then(data => {
+                setTotalToys(data)
             })
     }
 
@@ -66,6 +82,12 @@ const AllToys = () => {
                     handlerSort={handlerSort}
                     sort={sort}
                 ></Toystable>
+            </div>
+
+            <div className="mx-auto">
+                <div className="flex justify-center">
+                    <button onClick={handlerSeemore} className={`bg-sky-blue rounded py-2 shadow-md shadow-sky-blue px-5 text-white mb-32 ${seemore ? 'hidden' : 'block'}`}>Load More</button>
+                </div>
             </div>
         </section>
     );

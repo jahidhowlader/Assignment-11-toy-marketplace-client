@@ -2,8 +2,12 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
+
+    // custom Hooks
+    useTitle('Toy Details')
 
     const toysDetail = useLoaderData()
     const { seller, seller_email, toy_name, available_quantity, sub_category, price, image, rating, description } = toysDetail

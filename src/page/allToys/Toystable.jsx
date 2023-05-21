@@ -27,7 +27,7 @@ const Toystable = ({ totalToys, handlerSort, sort }) => {
                 </thead>
                 <tbody>
                     {
-                        totalToys.map((toy, idx) =>
+                        totalToys && totalToys.map((toy, idx) =>
                             <tr key={toy._id}>
                                 <th>
                                     <p className=''>{idx + 1}</p>
