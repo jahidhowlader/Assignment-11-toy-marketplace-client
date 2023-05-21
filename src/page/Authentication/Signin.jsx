@@ -11,7 +11,7 @@ import useTitle from '../../hooks/useTitle';
 const Signin = () => {
 
     // Auth Context
-    const { signinUser, googleSignin } = useContext(AuthContext)
+    const { signinUser, googleSignin, githubSignin } = useContext(AuthContext)
 
     // custom Hooks
     useTitle('Signin')
@@ -94,6 +94,29 @@ const Signin = () => {
             })
     }
 
+    // Handler Github Signin
+    const handlerGithubSignin = () => {
+        githubSignin()
+            .then(() => {
+
+                toast.success('Successfully Signin!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+                navigate(from, { replace: true })
+
+            })
+            .catch(err => {
+                setError(err.code.slice(5, (err.code.length)))
+            })
+    }
+
     return (
         <div id="auth-page-banner" className='grid grid-cols-3'>
             <div></div>
@@ -120,7 +143,7 @@ const Signin = () => {
                                 <button onClick={handlerGoogleSignin}>
                                     <FaGoogle className='text-red'></FaGoogle>
                                 </button>
-                                <button>
+                                <button onClick={handlerGithubSignin}>
                                     <FaGithub></FaGithub>
                                 </button>
                             </div>

@@ -85,12 +85,9 @@ const Navbar = () => {
         >
             BLOG
         </NavLink></li>
-
     </>
 
-
     return (
-
         <>
             <div className="flex justify-between items-center mr-5 md:mx-20 my-2 md:my-0">
                 <span className="mr-2 w-96 hidden md:block">Help | &copy; Jahid Howlader</span>
@@ -109,8 +106,8 @@ const Navbar = () => {
                     user ?
                         <div className="flex items-center md:w-96 justify-end">
                             {
-                                user.photoURL ?
-                                    <img src={user.photoURL} alt={user.displayName} className="w-8 h-8 rounded" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} /> :
+                                user?.photoURL ?
+                                    <img src={user?.photoURL} alt={user.displayName} className="w-8 h-8 rounded" data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} /> :
                                     <FaUserAlt data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} className="border text-2xl p-1 rounded"></FaUserAlt>
 
                             }
