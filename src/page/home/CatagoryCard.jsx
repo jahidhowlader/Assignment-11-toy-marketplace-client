@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const CatagoryCard = ({ subCategory, idx }) => {
 
     const { toy_name, sub_category, price, image, _id } = subCategory
-    // console.log(subCategory);
 
     return (
         <Link to={`/toy/${_id}`}>

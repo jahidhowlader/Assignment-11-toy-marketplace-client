@@ -50,7 +50,6 @@ const AddToys = () => {
                 'success'
             )
 
-        console.log(addToy);
     }
 
     return (

@@ -40,8 +40,7 @@ const MyToys = () => {
                         method: "DELETE"
                     })
                         .then(res => res.json())
-                        .then(data => {
-                            console.log(data);
+                        .then(() => {
 
                             const remaining = mineToys.filter(toy => toy._id !== _id)
                             setMineToys(remaining)

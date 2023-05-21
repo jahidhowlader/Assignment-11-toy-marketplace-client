@@ -20,8 +20,7 @@ const AllToys = () => {
     }, [])
 
     // handlerSearch
-    const handlerSearch = event => {
-        console.log(event.target.value);
+    const handlerSearch = () => {
 
         fetch(`http://localhost:5000/toys/${searchText}`)
             .then(res => res.json())
@@ -46,8 +45,6 @@ const AllToys = () => {
                 setTotalToys(data);
             })
     }
-
-    console.log(sortOrder);
 
     return (
         <section >
