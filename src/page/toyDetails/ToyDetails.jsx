@@ -14,7 +14,7 @@ const ToyDetails = () => {
             </div>
 
             {/* toys details */}
-            <div className="max-w-screen-xl mx-auto my-32">
+            <div className="max-w-screen-2xl mx-auto my-32">
                 <div className="grid grid-cols-5">
                     <div className="col-span-2 max-h-[700px]">
                         <img src={image} alt={toy_name} className="w-80 h-96 md:h-full" />

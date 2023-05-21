@@ -27,7 +27,7 @@ const AddToys = () => {
             available_quantity: quantity,
             description: details,
             seller: sellerName,
-            sellerEmail: user?.email,
+            sellerEmail: user.email,
             image
         }
 
@@ -49,25 +49,25 @@ const AddToys = () => {
     return (
         <section className="bg-red bg-opacity-30 rounded-lg max-w-screen-xl mx-auto my-12">
 
-            <h2 className="text-center text-3xl py-8">Added your Toys for Sell</h2>
+            {/* <h2 className="text-center text-3xl py-8">Added your Toys for Sell</h2> */}
             <form onSubmit={handlerAddToy} className="p-8">
                 {/* Toys Information */}
                 <h4 className="text-xl font-semibold mb-5">Toys Information:</h4>
-                <div className="grid grid-cols-2 gap-8">
-                    <input type="text" placeholder="Toy Name" name="toyName" className="p-5 rounded" required />
-                    <input type="text" placeholder="Sub-category" name="subCategory" className="p-5 rounded" required />
-                    <input type="text" placeholder="Price" name="price" className="p-5 rounded" required />
-                    <input type="text" placeholder="Rating" name="rating" className="p-5 rounded" required />
-                    <input type="text" placeholder="Available quantity" name="quantity" className="p-5 rounded" required />
-                    <input type="text" placeholder="Photo Url" name="photo" className="p-5 rounded" required />
+                <div className="grid grid-cols-2 gap-6">
+                    <input type="text" placeholder="Toy Name" name="toyName" className="p-2 rounded" required />
+                    <input type="text" placeholder="Sub-category" name="subCategory" className="p-2 rounded" required />
+                    <input type="text" placeholder="Price" name="price" className="p-2 rounded" required />
+                    <input type="text" placeholder="Rating" name="rating" className="p-2 rounded" required />
+                    <input type="text" placeholder="Available quantity" name="quantity" className="p-2 rounded" required />
+                    <input type="text" placeholder="Photo Url" name="photo" className="p-2 rounded" required />
                 </div>
-                <textarea className="w-full mt-8 rounded p-5" name="details" rows={6} required></textarea>
+                <textarea className="w-full mt-8 rounded p-2" name="details" rows={6} required></textarea>
 
                 {/* Seller Information */}
                 <h4 className="text-xl font-semibold mt-10 mb-5">Seller Information:</h4>
                 <div className="grid grid-cols-2 gap-8">
-                    <input type="text" placeholder="Seller Name" name="sellerName" className="p-5 rounded" required />
-                    <input type="email" placeholder={user?.email} className="p-5 rounded" disabled />
+                    <input type="text" placeholder="Seller Name" name="sellerName" className="p-2 rounded" required />
+                    <input type="email" placeholder={user?.email} className="p-2 rounded" disabled />
                 </div>
 
                 <input type="submit" value="Submit" className='bg-gradient-to-r from-gd-first to-gd-second w-full rounded-lg py-2 shadow-lg shadow-gd-second text-white font-bold text-xl my-5 cursor-pointer ' />

@@ -1,7 +1,7 @@
+import { FaEye, FaTrash, FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const MyToysTable = ({mineToys}) => {
-
+const MyToysTable = ({ mineToys, handlerDeleteToy }) => {
 
     return (
         <div className="overflow-x-auto w-full mb-32">
@@ -44,11 +44,20 @@ const MyToysTable = ({mineToys}) => {
                                 </td>
                                 <th className="pl-5">${toy.price}</th>
                                 <th className='pl-5'>{toy.available_quantity}</th>
-                                <th>
-                                    <Link to={`/toys/${toy._id}`}>
-                                        {/* <button className="bg-gradient-to-r from-gd-first to-gd-second w-full rounded py-2 shadow-md shadow-gd-second text-white my-5">details</button> */}
-                                        <button className="bg-sky-blue w-full rounded py-2 shadow-md shadow-sky-blue text-white my-5">details</button>
-                                    </Link>
+                                <th >
+                                    <div className="flex gap-3 pl-3">
+
+                                        <Link to={`/toys/${toy._id}`}>
+                                            <FaEye></FaEye>
+                                        </Link>
+                                        <FaUserEdit className="text-sky-blue"></FaUserEdit>
+
+                                        <button onClick={() => handlerDeleteToy(toy._id)}>
+                                            <FaTrash className="text-red"></FaTrash>
+
+                                        </button>
+
+                                    </div>
                                 </th>
                             </tr>
                         )

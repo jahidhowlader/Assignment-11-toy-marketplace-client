@@ -77,6 +77,7 @@ const Signin = () => {
                 });
             })
             .catch(err => {
+                console.log(err);
                 setError(err.code.slice(5, (err.code.length)))
             })
     }

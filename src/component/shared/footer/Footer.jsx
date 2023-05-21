@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="footer p-10 text-neutral-content max-w-screen-xl mx-auto items-center justify-around">
+        <footer className="footer p-10 text-neutral-content mx-auto items-center justify-around">
             <div>
                 <h1 className="my-2 text-3xl text-center custom-font">Castle Disney</h1>
                 <p>Hasbro Industries Ltd.<br />Providing reliable toy since 1992</p>

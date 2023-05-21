@@ -2,7 +2,7 @@ import Marquee from "react-fast-marquee";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import CatagoryCard from "./CatagoryCard";
 import SwiperSection from "./SwiperSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
@@ -35,19 +35,25 @@ const Home = () => {
     ]
 
     const tabvalue = ["Frozen Doll", "Tangled Doll", "Moana Doll", "Ariel Doll", "Belle Doll", "Elsa Doll", "Cinderella Doll", "Anna Doll", "Mulan Doll"]
-    const [selectedTabValue, setSelectedTabValue] = useState(null)
     const [categoryData, setCategoryData] = useState([])
 
     const handlerTabs = index => {
 
-        setSelectedTabValue(tabvalue[index])
+        const categoryName = tabvalue[index] || 'Frozen Doll'
 
-        fetch(`http://localhost:5000/${tabvalue[index]}`)
+        fetch(`http://localhost:5000/${categoryName}`)
             .then(res => res.json())
-            .then(data=> setCategoryData(data))
+            .then(data => setCategoryData(data))
     }
 
-    console.log(categoryData);
+    useEffect(() => {
+
+        fetch(`http://localhost:5000/Frozen Doll`)
+            .then(res => res.json())
+            .then(data => setCategoryData(data))
+    }, [])
+
+    // console.log(categoryData);
 
     return (
         <>
@@ -61,13 +67,18 @@ const Home = () => {
             </section>
 
             {/* Sub Catagory tab Section */}
-            <section data-aos="zoom-out" data-aos-duration="1500" className="mt-16 mb-12 max-w-screen-xl mx-auto">
+            <section data-aos="zoom-out" data-aos-duration="1500" className="mt-16 mb-12 max-w-screen-2xl mx-auto">
                 <h2 className="text-xl font-semibold pb-2">SHOP BY CATEGORY</h2>
                 <hr className="mb-5 border-black border-opacity-20" />
                 <Tabs onSelect={handlerTabs} className="grid grid-cols-11 gap-6">
                     <div className="col-span-3">
                         <TabList className="space-y-3 ml-3 mt-5" >
-                            <Tab className="cursor-pointer">Frozen Doll</Tab>
+
+                            {
+                                tabvalue.map((subCategory, idx) => <Tab key={idx} className="cursor-pointer">{subCategory}</Tab>)
+                            }
+
+                            {/* <Tab className="cursor-pointer">Frozen Doll</Tab> */}
                             {/* <Tab className="cursor-pointer">Tangled Doll</Tab>
                             <Tab className="cursor-pointer">Moana Doll</Tab>
                             <Tab className="cursor-pointer">Ariel Doll</Tab>
@@ -81,36 +92,20 @@ const Home = () => {
 
                     <div className="col-span-8">
 
-                        <TabPanel >
-                            <div className="grid grid-cols-4 gap-8">
-
-                                <div className="rounded-3xl">
-                                    <CatagoryCard
-                                        textColor="text-red"
-                                        bg="bg-rose"
-                                    ></CatagoryCard>
+                        {
+                            tabvalue.map((_, idx) => <TabPanel key={idx}>
+                                <div className="grid grid-cols-4 gap-8">
+                                    {
+                                        categoryData && categoryData.map((subCategory, idx) => <div key={subCategory._id} >
+                                            <CatagoryCard
+                                                subCategory={subCategory}
+                                                idx={idx}
+                                            ></CatagoryCard>
+                                        </div>)
+                                    }
                                 </div>
-                                <div className="rounded-3xl">
-                                    <CatagoryCard
-                                        textColor="text-sky-blue"
-                                        bg="bg-sky"
-                                    ></CatagoryCard>
-                                </div>
-                                <div className="rounded-3xl">
-                                    <CatagoryCard
-                                        textColor="text-purple"
-                                        bg="bg-light-purple"
-                                    ></CatagoryCard>
-                                </div>
-                                <div className="rounded-3xl">
-                                    <CatagoryCard
-                                        textColor="text-sky-blue"
-                                        bg="bg-brown"
-                                    ></CatagoryCard>
-                                </div>
-
-                            </div>
-                        </TabPanel>
+                            </TabPanel>)
+                        }
                     </div>
                 </Tabs>
             </section>
@@ -142,7 +137,7 @@ const Home = () => {
 
 
 
-            <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-xl mx-auto my-32">
+            <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-2xl mx-auto my-32">
                 <div className="text-center">
                     <h3 className="text-2xl font-semibold pb-3">@CastleDisneyUSA </h3>
                     <p>We love seeing your littles with their favorites from CastleDisney! Tag us or share a photo for a chance to be featured.</p>
