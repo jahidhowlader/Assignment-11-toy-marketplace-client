@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import useTitle from "../../hooks/useTitle";
+import { FaShieldAlt, FaTree, FaTrophy } from "react-icons/fa";
 AOS.init();
 
 
@@ -71,7 +72,7 @@ const Home = () => {
 
             {/* Sub Catagory tab Section */}
             {/* data-aos="zoom-out" data-aos-duration="1500" */}
-            <section  className="my-8 md:mt-16 md:mb-12 max-w-screen-2xl mx-2 md:mx-auto">
+            <section className="my-8 md:mt-16 md:mb-12 max-w-screen-2xl mx-2 md:mx-auto">
                 <h2 className="text-xl font-semibold pb-2">SHOP BY CATEGORY</h2>
                 <hr className="mb-5 border-black border-opacity-20" />
                 <Tabs onSelect={handlerTabs} className="grid md:grid-cols-11 gap-6">
@@ -139,6 +140,28 @@ const Home = () => {
                 <SwiperSection></SwiperSection>
             </div>
 
+            <section className="max-w-screen-xl md:mx-auto text-center mb-32 mx-2">
+                <h3 className="text-3xl ">A Tradition of Play</h3>
+                <p className="text-xl tracking-wider my-8 max-w-screen-lg mx-auto">CastleDisney has been making educational toys for kids that inspire for more than 80 years. We know the difference a toy can make in a child’s life – not only the skills they learn, but the memories they make. Our commitment is to create premium, educational children’s toys that help unlock kids’ creativity, curiosity and more.</p>
+
+                <div className="grid md:grid-cols-3 gap-12 text-center mt-16 mx-2 md:mx-0">
+                    <div>
+                        <FaTrophy className="mx-auto text-5xl text-red"></FaTrophy>
+                        <h6 className="text-2xl mt-5 mb-3">Quality</h6>
+                        <p>Our toys are designed to last for years of play.</p>
+                    </div>
+                    <div>
+                        <FaShieldAlt className="mx-auto text-5xl text-red"></FaShieldAlt>
+                        <h6 className="text-2xl mt-5 mb-3">Safety</h6>
+                        <p>Our toys are rigorously tested to meet the highest standards of safety.</p>
+                    </div>
+                    <div>
+                        <FaTree className="mx-auto text-5xl text-red"></FaTree>
+                        <h6 className="text-2xl mt-5 mb-3">Sustainability</h6>
+                        <p>We source materials & manufacture with a focus on environmentally friendly practices.</p>
+                    </div>
+                </div>
+            </section>
         </>
     );
 };

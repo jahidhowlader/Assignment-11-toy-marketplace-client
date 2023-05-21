@@ -7,7 +7,7 @@ const AddToys = () => {
 
     // AuthContext
     const { user } = useContext(AuthContext)
-
+    
     // custom Hooks
     useTitle('Add Toys')
 
@@ -53,7 +53,6 @@ const AddToys = () => {
                 'Your toys has added with your dashboard.',
                 'success'
             )
-
     }
 
     return (
@@ -76,7 +75,7 @@ const AddToys = () => {
                 <h4 className="text-xl font-semibold mt-10 mb-5">Seller Information:</h4>
                 <div className="grid grid-cols-2 gap-8">
                     <input type="text" placeholder="Seller Name" name="sellerName" className="p-2 rounded" required />
-                    <input type="email" placeholder={user?.email} className="p-2 rounded" disabled />
+                    <input type="email" placeholder={user?.email} defaultValue={user?.email} className="p-2 rounded" disabled />
                 </div>
 
                 <input type="submit" value="Submit" className='bg-gradient-to-r from-gd-first to-gd-second w-full rounded-lg py-2 shadow-lg shadow-gd-second text-white font-bold text-xl my-5 cursor-pointer ' />
