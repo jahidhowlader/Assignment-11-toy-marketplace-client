@@ -27,7 +27,7 @@ const AddToys = () => {
             available_quantity: quantity,
             description: details,
             seller: sellerName,
-            sellerEmail: user.email,
+            seller_email: user.email,
             image
         }
 
@@ -49,7 +49,6 @@ const AddToys = () => {
     return (
         <section className="bg-red bg-opacity-30 rounded-lg max-w-screen-xl mx-auto my-12">
 
-            {/* <h2 className="text-center text-3xl py-8">Added your Toys for Sell</h2> */}
             <form onSubmit={handlerAddToy} className="p-8">
                 {/* Toys Information */}
                 <h4 className="text-xl font-semibold mb-5">Toys Information:</h4>

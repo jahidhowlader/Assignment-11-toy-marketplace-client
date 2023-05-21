@@ -7,8 +7,6 @@ const MyToys = () => {
     // Auth Context
     const { user } = useContext(AuthContext)
 
-    console.log(user?.email);
-
     // state for total toys of mine
     const [mineToys, setMineToys] = useState(null)
 
@@ -33,10 +31,12 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+
+                const remaining = mineToys.filter(toy => toy._id !== _id)
+                setMineToys(remaining)
             })
     }
 
-    console.log(mineToys);
     return (
         <>
             <hr />

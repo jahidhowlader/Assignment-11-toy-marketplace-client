@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDk6635FI3bmRVBG-i4KrGca44rMITsXkg",
-  authDomain: "castle-disney.firebaseapp.com",
-  projectId: "castle-disney",
-  storageBucket: "castle-disney.appspot.com",
-  messagingSenderId: "640949661017",
-  appId: "1:640949661017:web:121cdb74c5e02997c7b048"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
