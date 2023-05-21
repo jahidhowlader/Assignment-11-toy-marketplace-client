@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
 import './Authentication.css'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider'
 import { toast } from 'react-toastify';
 import { updateProfile } from 'firebase/auth';
@@ -9,6 +9,13 @@ const Signup = () => {
 
     // AuthContext
     const { createUser } = useContext(AuthContext)
+
+    // use navigate for rerender private page
+    const navigate = useNavigate()
+
+    // Location state
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
 
     // Validation State
     const [error, setError] = useState('')
@@ -42,11 +49,9 @@ const Signup = () => {
         } else {
             setError('')
         }
-        console.log(nameInput, emailInput, passwordInput, photoUrlInput);
 
         createUser(emailInput, passwordInput)
             .then(userCredential => {
-                console.log(userCredential.user);
 
                 updateProfile(userCredential.user, {
                     displayName: nameInput,
@@ -56,6 +61,7 @@ const Signup = () => {
                 setError("")
                 form.reset()
 
+                navigate(from, { replace: true })
                 toast.success('Successfully Signin!', {
                     position: "top-right",
                     autoClose: 3000,
@@ -77,11 +83,7 @@ const Signup = () => {
 
                 setError(err.code)
             })
-
-
     }
-
-
 
     return (
         <div id="auth-page-banner" className='grid grid-cols-3'>

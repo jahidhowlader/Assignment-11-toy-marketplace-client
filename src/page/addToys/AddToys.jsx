@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToys = () => {
 
@@ -39,9 +40,15 @@ const AddToys = () => {
             body: JSON.stringify(addToy)
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then(() => {
+                form.reset()
             })
+
+            Swal.fire(
+                'Toys Added!',
+                'Your toys has added with your dashboard.',
+                'success'
+            )
 
         console.log(addToy);
     }

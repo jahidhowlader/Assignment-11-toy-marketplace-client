@@ -3,6 +3,7 @@ import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import CatagoryCard from "./CatagoryCard";
 import SwiperSection from "./SwiperSection";
 import { useEffect, useState } from "react";
+import 'react-toastify/dist/ReactToastify.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
@@ -53,8 +54,6 @@ const Home = () => {
             .then(data => setCategoryData(data))
     }, [])
 
-    // console.log(categoryData);
-
     return (
         <>
             {/* Banner Section */}
@@ -78,15 +77,6 @@ const Home = () => {
                                 tabvalue.map((subCategory, idx) => <Tab key={idx} className="cursor-pointer">{subCategory}</Tab>)
                             }
 
-                            {/* <Tab className="cursor-pointer">Frozen Doll</Tab> */}
-                            {/* <Tab className="cursor-pointer">Tangled Doll</Tab>
-                            <Tab className="cursor-pointer">Moana Doll</Tab>
-                            <Tab className="cursor-pointer">Ariel Doll</Tab>
-                            <Tab className="cursor-pointer">Belle Doll</Tab>
-                            <Tab className="cursor-pointer">Elsa Doll</Tab>
-                            <Tab className="cursor-pointer">Cinderella Doll</Tab>
-                            <Tab className="cursor-pointer">Anna Doll</Tab>
-                            <Tab className="cursor-pointer">Mulan Doll</Tab> */}
                         </TabList>
                     </div>
 

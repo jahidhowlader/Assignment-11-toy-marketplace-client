@@ -8,7 +8,7 @@ const CatagoryCard = ({ subCategory, idx }) => {
 
     return (
         <Link to={`/toys/${_id}`}>
-            <div className={`card rounded-md flex h-full p-5 shadow-red hover:bg-opacity-50 ${idx % 2 === 0 ? 'bg-sky' : 'bg-rose'} `}>
+            <div className={`card rounded-md flex h-full p-5 shadow-red hover:bg-opacity-50 ${idx % 2 === 0 ? 'border border-sky-blue  hover:bg-sky' : 'border border-red -red  hover:bg-rose'} `}>
                 <small className={`pb-3 font-bold ${idx % 2 === 0 ? 'text-sky-blue' : 'text-red'}`}>{sub_category}</small>
                 <div className="flex flex-col">
                     <div>

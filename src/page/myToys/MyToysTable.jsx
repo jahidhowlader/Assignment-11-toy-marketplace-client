@@ -1,5 +1,6 @@
 import { FaEye, FaTrash, FaUserEdit } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToysTable = ({ mineToys, handlerDeleteToy }) => {
 
@@ -33,6 +34,11 @@ const MyToysTable = ({ mineToys, handlerDeleteToy }) => {
             .then(data => {
 
                 if (data.modifiedCount) {
+                    Swal.fire(
+                        'Toys Modify updated!',
+                        'Your toys has added with your dashboard.',
+                        'success'
+                    )
                     navigate(`/toys/${_id}`)
                 }
             })

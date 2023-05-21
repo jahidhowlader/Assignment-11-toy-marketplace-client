@@ -22,8 +22,6 @@ const Signin = () => {
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
 
-    console.log(location);
-
     // Handler Signin
     const handlerSignin = event => {
         event.preventDefault()
@@ -37,6 +35,16 @@ const Signin = () => {
                 setError("")
                 form.reset()
                 navigate(from, { replace: true })
+                toast.success('Successfully Signin!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             })
             .catch(e => {
                 setError('')
@@ -64,7 +72,6 @@ const Signin = () => {
         googleSignin()
             .then(() => {
 
-                navigate(from, { replace: true })
                 toast.success('Successfully Signin!', {
                     position: "top-right",
                     autoClose: 3000,
@@ -75,9 +82,10 @@ const Signin = () => {
                     progress: undefined,
                     theme: "colored",
                 });
+                navigate(from, { replace: true })
+
             })
             .catch(err => {
-                console.log(err);
                 setError(err.code.slice(5, (err.code.length)))
             })
     }
@@ -113,7 +121,7 @@ const Signin = () => {
                                 </button>
                             </div>
 
-                            <p className='text-center'>Do not have an account..? Please <Link to="/auth/signup" className='font-bold'>signup</Link></p>
+                            <p className='text-center'>Do not have an account..? Please <Link to="/auth/signup" className='font-bold' state={location.state}>signup</Link></p>
 
                         </div>
                     </div>
