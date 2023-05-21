@@ -54,7 +54,7 @@ const Toystable = ({ totalToys, handlerSort, sort }) => {
                                 </th>
                                 <th className='pl-5'>{toy.available_quantity}</th>
                                 <th>
-                                    <Link to={`/toys/${toy._id}`}>
+                                    <Link to={`/toy/${toy._id}`}>
                                         <button className="bg-sky-blue w-full rounded py-2 shadow-md shadow-sky-blue text-white my-5">details</button>
                                     </Link>
                                 </th>

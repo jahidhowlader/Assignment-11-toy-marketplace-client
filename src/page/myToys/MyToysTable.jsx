@@ -88,7 +88,7 @@ const MyToysTable = ({ mineToys, handlerDeleteToy }) => {
                                 <th >
                                     <div className="flex gap-3 pl-3">
 
-                                        <Link to={`/toys/${toy._id}`}>
+                                        <Link to={`/toy/${toy._id}`}>
                                             <FaEye></FaEye>
                                         </Link>
 

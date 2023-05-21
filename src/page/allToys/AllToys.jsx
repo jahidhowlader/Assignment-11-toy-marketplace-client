@@ -42,10 +42,10 @@ const AllToys = () => {
                 <img src="https://i.ibb.co/s3Y3SdR/Disney-Princess-Banner-00b-scaled.jpg" alt="" />
             </div>
 
-            <div className='max-w-xl mx-auto mt-24 flex'>
-                <input onChange={(e) => setSearchText(e.target.value)} type="text" className='bg-rose w-full px-5 py-3' />
+            <div className='max-w-xl mx-auto mt-24 flex '>
+                <input onChange={(e) => setSearchText(e.target.value)} type="text" className='bg-rose w-full px-5 py-3 rounded' />
                 <button onClick={handlerSearch}>
-                    <FaSearch className='bg-red text-white p-3 text-5xl'></FaSearch>
+                    <FaSearch className='bg-red text-white p-3 text-5xl rounded-tr rounded-br'></FaSearch>
                 </button>
 
             </div>

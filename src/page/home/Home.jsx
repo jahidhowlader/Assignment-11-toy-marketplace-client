@@ -57,21 +57,22 @@ const Home = () => {
     return (
         <>
             {/* Banner Section */}
-            <section data-aos="zoom-in" data-aos-duration="1000" className="relative">
+            <section data-aos="zoom-in" data-aos-duration="1000" className="relative mx-2 md:mx-0 mt-3">
                 <img src="https://i.ibb.co/KKq7y8N/33641-frozen-movie-mb.webp" alt="banner image" className="w-full" />
-                <div className="absolute top-1/2 left-40 text-white">
+                <div className="absolute top-1/2 left-40 text-white hidden md:block">
                     <h2 className="text-3xl">Frozen</h2>
                     <p>Discover our Frozen collection including toys, dolls   & more featuring Anna, Elsa & <br />all of their friends.</p>
                 </div>
             </section>
 
             {/* Sub Catagory tab Section */}
-            <section data-aos="zoom-out" data-aos-duration="1500" className="mt-16 mb-12 max-w-screen-2xl mx-auto">
+            {/* data-aos="zoom-out" data-aos-duration="1500" */}
+            <section  className="my-8 md:mt-16 md:mb-12 max-w-screen-2xl mx-2 md:mx-auto">
                 <h2 className="text-xl font-semibold pb-2">SHOP BY CATEGORY</h2>
                 <hr className="mb-5 border-black border-opacity-20" />
-                <Tabs onSelect={handlerTabs} className="grid grid-cols-11 gap-6">
+                <Tabs onSelect={handlerTabs} className="grid md:grid-cols-11 gap-6">
                     <div className="col-span-3">
-                        <TabList className="space-y-3 ml-3 mt-5" >
+                        <TabList className=" space-y-3 ml-3 mt-5" >
 
                             {
                                 tabvalue.map((subCategory, idx) => <Tab key={idx} className="cursor-pointer">{subCategory}</Tab>)
@@ -84,7 +85,7 @@ const Home = () => {
 
                         {
                             tabvalue.map((_, idx) => <TabPanel key={idx}>
-                                <div className="grid grid-cols-4 gap-8">
+                                <div className="grid md:grid-cols-4 gap-4 md:gap-8">
                                     {
                                         categoryData && categoryData.map((subCategory, idx) => <div key={subCategory._id} >
                                             <CatagoryCard
@@ -101,20 +102,20 @@ const Home = () => {
             </section>
 
             {/* Gallery Section */}
-            <div className="max-w-screen-xl mx-auto hidden">
-                <section className="text-center mt-32">
-                    <h2 className="text-3xl font-semibold">Disney Gallery</h2>
+            <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-xl mx-2 md:mx-auto">
+                <section className="md:text-center mt-20 md:mt-32">
+                    <h2 className="text-3xl font-semibold text-center">Disney Gallery</h2>
                     <p className="my-5">
-                        <small className="">Disney Gallery is a captivating and immersive experience that takes visitors behind the scenes of the beloved Disney universe. It showcases the artistry, creativity, and imagination that go into bringing iconic characters and stories to life. From concept art and character design to visual effects and set construction, Disney Gallery offers a glimpse into the intricate process of filmmaking and the meticulous attention to detail that makes Disney films and animations so enchanting. Whether you are a fan of classic Disney films or the latest blockbusters, Disney Gallery is a must-visit destination for anyone seeking a deeper understanding and appreciation of the magic behind the Disney storytelling.</small>
+                        <small className="text-start">Disney Gallery is a captivating and immersive experience that takes visitors behind the scenes of the beloved Disney universe. It showcases the artistry, creativity, and imagination that go into bringing iconic characters and stories to life. From concept art and character design to visual effects and set construction, Disney Gallery offers a glimpse into the intricate process of filmmaking and the meticulous attention to detail that makes Disney films and animations so enchanting. Whether you are a fan of classic Disney films or the latest blockbusters, Disney Gallery is a must-visit destination for anyone seeking a deeper understanding and appreciation of the magic behind the Disney storytelling.</small>
                     </p>
 
                     <div>
-                        <Marquee className="flex items-center my-12" pauseOnHover>
+                        <Marquee className="items-center my-12" pauseOnHover>
                             {
                                 toyPic.map((pic, idx) =>
                                     <div key={idx}>
                                         {idx % 2 === 0 ?
-                                            <img src={toyPic[idx]} alt="" className="h-[300px] w-[300px]  rounded-lg mx-3" /> : <img src={toyPic[idx]} alt="" className="w-[200px] h-[200px] border rounded-lg mx-3" />
+                                            <img src={toyPic[idx]} alt="" className="h-[300px] w-[300px]  rounded-lg mx-3" /> : <img src={toyPic[idx]} alt="" className="w-[200px] h-[200px]  rounded-lg mx-3 mt-12" />
                                         }
                                     </div>
                                 )
@@ -127,7 +128,7 @@ const Home = () => {
 
 
 
-            <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-2xl mx-auto my-32">
+            <div data-aos="zoom-out-down" data-aos-duration="1500" className="max-w-screen-2xl mx-2 md:mx-auto my-32">
                 <div className="text-center">
                     <h3 className="text-2xl font-semibold pb-3">@CastleDisneyUSA </h3>
                     <p>We love seeing your littles with their favorites from CastleDisney! Tag us or share a photo for a chance to be featured.</p>
