@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Blog = () => {
     return (
         <>
@@ -26,7 +24,7 @@ const Blog = () => {
                 <br />
                 <div>
                     <h3 className='text-2xl font-semibold'>Q2: Compare SQL and NoSQL databases?</h3>
-                    <p><span className='font-semibold'>Answer: </span> SQL and NoSQL databases are two different types of database management systems that serve distinct purposes. Here's a comparison between SQL (relational) and NoSQL (non-relational) databases:.</p> <br />
+                    <p><span className='font-semibold'>Answer: </span> SQL and NoSQL databases are two different types of database management systems that serve distinct purposes. Heres a comparison between SQL (relational) and NoSQL (non-relational) databases:.</p> <br />
                     <p className='font-semibold'>SQL Databases:</p>
                     <ul>
                         <li>1. SQL databases use a structured data model based on tables with predefined schemas. Data is organized into rows and columns, and relationships are established using foreign keys.</li>

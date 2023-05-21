@@ -7,7 +7,8 @@ const AllToys = () => {
     // All state are here (search , al toys)
     const [searchText, setSearchText] = useState('')
     const [totalToys, setTotalToys] = useState([])
-    const [sort, setSort] = useState(true)
+    const [sort, setSort] = useState(false)
+    const [sortOrder, setSortOrder] = useState('ascending')
 
     // Fetch data from database using api
     useEffect(() => {
@@ -32,9 +33,21 @@ const AllToys = () => {
     // Hander Sorting
     const handlerSort = () => {
         setSort(!sort)
+
+        if(sort){
+            setSortOrder('ascending')
+        } else {
+            setSortOrder('descending ')
+        }
+
+        fetch(`http://localhost:5000/toys/sort/${sortOrder}`)
+            .then(res => res.json())
+            .then(data => {
+                setTotalToys(data);
+            })
     }
 
-    console.log(sort);
+    console.log(sortOrder);
 
     return (
         <section >
